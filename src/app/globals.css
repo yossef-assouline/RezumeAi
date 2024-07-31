@@ -15,9 +15,13 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
+body{
+ background-color: #A7BBEC;
+  
+  
+}
+form{
+  margin: 0 auto;
 }
 
 @layer utilities {
