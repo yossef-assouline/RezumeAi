@@ -4,9 +4,9 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 dotenv.config();
 const KEY = process.env.API_KEY
 
-const genAI = new GoogleGenerativeAI(KEY); 
+const genAI = new GoogleGenerativeAI('AIzaSyCXj1E3VDz6CjmMgbmo_YXRhXUY6H7kLzI'); 
 
-async function run(userInput) {
+export async function run(userInput) {
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
     const prompt = `I want you to make a porfolio acording to the input I will provide you: ${userInput},
     I want you to organize to json format like so: my details, experience, education, etc...`;
@@ -17,4 +17,3 @@ async function run(userInput) {
     console.log(text);
 }
 
-run("my name Hody katan, I'm from Pakistan, I am 27 years old, finished a computer science degree in ZUBUR uni in 2020, I currently work at Meta for 2 years now as sales representive, I have experience in Dark magic from temu, React, Node, MongoDB Im looking for a fullstack developer role at a high tech company, ");
