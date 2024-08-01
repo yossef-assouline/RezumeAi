@@ -13,9 +13,7 @@ export default function Card() {
   }
   return (
     <>
-    <Image width={600} height={300} src="/logo-no-background-reszume-Ai.png" className="m-0 m-auto"></Image>
-    <h2></h2>
-    <form className="bg-[#15172b] box-border h-[500px] w-80 p-5 rounded-[20px]" onSubmit={(e)=>handleForm(e)}>
+    <form className="mt-16 bg-[#15172b] box-border h-[500px] w-80 p-5 rounded-[20px]" onSubmit={(e)=>handleForm(e)}>
     
       <div className="text-[#eee] text-4xl font-semibold mt-[30px]">Step 1:</div>
       <div className="text-[#eee] text-base font-semibold mt-2.5">Personal info:</div>
