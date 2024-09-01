@@ -14,6 +14,7 @@ export default function Home() {
     <NavBar/>
     <Intro/>
     <About/>
+    <Card/>
     <Payment/>
     </>
   );
