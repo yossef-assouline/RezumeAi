@@ -5,7 +5,7 @@ import { MainButton } from "./MainButton";
 export const Hero = () => {
   return (
     <>
-      <Container>
+      <Container className="bg-gray-50">
         <div className="wrapper">
           <div className="aside-hero">
             <h1 className="h1-hero">
@@ -19,7 +19,7 @@ export const Hero = () => {
               Our AI-powered resume builder is <br />designed to help you craft a
               professional, <br />personalized resume in <br />minutes.
             </p>
-            <MainButton></MainButton>  
+            <MainButton text={"Learn More"}/> 
           </div>
 
           
