@@ -1,6 +1,5 @@
-import React from "react";
-import { StepsWrapper } from "./styles/StepsWrapper.styled";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+
 export const Steps = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -8,18 +7,20 @@ export const Steps = () => {
 
   const steps = [
     {
-      title: "Step 1",
-      description: "Getting started with our SaaS platform",
-      videoUrl: "video-test.mp4",
+      title: "Tell us about yourself",
+      description:
+        "By clicking on a sponsor, you can see many information about the sponsor and the kind of YouTubers they work with. Save it to your favorites to keep track of it.",
+      videoUrl:
+        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     },
     {
-      title: "Step 2",
+      title: "Choose a template",
       description: "Setting up your first project",
       videoUrl:
         "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
     },
     {
-      title: "Step 3",
+      title: "download your resume in PDF",
       description: "Advanced features and customization",
       videoUrl:
         "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
@@ -32,13 +33,6 @@ export const Steps = () => {
 
     const updateProgress = () => {
       const progress = (video.currentTime / video.duration) * 100;
-      console.log(progress);
-      if (progress === 100 && currentStep !== 2) {
-        setCurrentStep(currentStep + 1);
-      }
-      if (currentStep === 3) {
-        setCurrentStep(0);
-      }
       setProgress(progress);
     };
 
@@ -54,61 +48,53 @@ export const Steps = () => {
     }
   };
 
-  const handleNextStep = () => {
-    if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
-      setProgress(0);
-    }
-  };
-
-  const handleRestartStep = () => {
-    if (currentStep !== 0) {
-      setCurrentStep(currentStep - 1);
-    }
-    const video = videoRef.current;
-    if (video) {
-      video.currentTime = 0;
-      setProgress(0);
-    }
-  };
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black ">
-      <h1 className="text-white text-5xl mb-12" >Place Holder</h1>
-      <div className="w-full  rounded-lg shadow-md overflow-hidden  flex  justify-evenly">
-        <div className="flex p-4 border border-black items-center ">
-          <div className="w-2/3 ml-12">
+    <div className="flex flex-col items-center justify-center min-h-screen ">
+      <h1 className=' text-6xl font-semibold text-center mb-16'>Step by Step Guide resumes <br /><span className='text-center text-[#0088DD]'> a few clicks away</span> <br />
+     </h1>
+      <div className="w-full rounded-lg  flex justify-center">
+        <div className="flex p-4 items-center gap-2 w-2/3 ">
+          <div className="w-2/3 ">
             {steps.map((step, index) => (
               <div
                 key={index}
-                className={`mb-4 p-4 rounded-lg w-2/3 cursor-pointer transition-colors duration-200 ${
+                className={`border-l ring-1 ring-gray-200 dark:ring-gray-800 shadow flex flex-col justify-center  mb-4 p-4 rounded-[5px] w-[30rem] cursor-pointer transition-all duration-1000 ease-out ${
                   index === currentStep
                     ? "bg-blue-100 border-2 border-blue-500"
-                    : "bg-gray-100 hover:bg-blue-50"
+                    : "bg-gray-100 hover:bg-blue-50 "
                 }`}
                 onClick={() => handleStepClick(index)}
+                style={{
+                  overflow: "hidden",
+                }}
               >
-                <div
-                  key={index}
-                  className={`w-5 p-3 h-5 text-white flex items-center justify-center  ${
-                    index === currentStep
-                      ? "bg-[#0088DD] border-2 border-blue-500"
-                    : "bg-[#969696] hover:bg-blue-50"
-                  }}`}
+                <h3 class="flex items-center gap-2 text-xl font-medium mb-2">
+                  <kbd
+                    class={`inline-flex  ${
+                      index === currentStep
+                        ? "bg-[#0088DD] border-2 border-blue-500"
+                        : "bg-[#969696] opacity-40"
+                    } items-center justify-center text-white dark:text-gray-300 h-5 min-w-[20px] text-[11px] px-1 rounded  font-medium font-sans  dark:bg-gray-800  ring-gray-300 dark:ring-gray-700`}
+                  >
+                    {index + 1}
+                  </kbd>{" "}
+                  {step.title}
+                </h3>
+
+                <p
+                  className={`text-sm text-gray-600 mt-2 transition-opacity duration-1000 ${
+                    index === currentStep ? "opacity-100" : "hidden"
+                  }`}
                 >
-                  {index + 1}
-                </div>
-                <h3 className="font-bold text-lg">{step.title}</h3>
-                <p className="text-sm text-gray-600">{step.description}</p>
-                {index === currentStep ? (
-                  <div className="w-full bg-gray-200 rounded-full h-2.5">
+                  {step.description}
+                </p>
+                {index === currentStep && (
+                  <div className="w-full bg-gray-200 rounded-full h-1 mt-2">
                     <div
-                      className="bg-blue-600 h-2.5 rounded-full"
+                      className="bg-blue-600 h-1 rounded-full transition-all duration-1000 ease-in-out"
                       style={{ width: `${progress}%` }}
                     ></div>
                   </div>
-                ) : (
-                  ""
                 )}
               </div>
             ))}
@@ -127,3 +113,5 @@ export const Steps = () => {
     </div>
   );
 };
+
+export default Steps;

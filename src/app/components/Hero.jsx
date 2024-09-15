@@ -31,7 +31,7 @@ export const Hero = () => {
           ></Image>
         </div>
       </Container>
-      <hr className="border border-black" />
+    
     </>
   );
 };
