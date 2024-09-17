@@ -1,4 +1,4 @@
-import React from 'react'
+import {React , useState} from 'react'
 import { CiCircleCheck } from "react-icons/ci";
 
 
@@ -43,7 +43,7 @@ export const Plans = () => {
     }
     
   ]
-
+  
   
   return (
     <div className="bg-black h-screen w-full flex items-center justify-center gap-12 flex-wrap">
@@ -88,8 +88,10 @@ export const Plans = () => {
       <path d="M 0 44 Q 600 -100 1200 400 Q 1800 900 2400 44" opacity="0.30"></path>
     </g>
   </svg>
+  
+      
       {plans.map((plan, index) => (
-    <div key={index} className=' bg-white p-8 w-[300px] rounded-sm flex flex-col gap-4 z-10'>
+    <div key={index} className=' bg-white p-8 w-[300px] rounded-sm flex flex-col gap-4 z-10 duration-1000 -rotate-0 hover:[transform:rotate3d(100_,90,_10,_10deg)]'>
       <h1 className='font-bold text-xl text-black'>{plan.plan_title}</h1>
       <h2 className='font-extrabold text-4xl'>{plan.plan_price}</h2>
       <p className='text-gray-500'>{plan.plan_description}</p>
