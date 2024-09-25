@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Container } from "./styles/Container.styled";
 import { MainButton } from "./MainButton";
+import Link from "next/link";
 export const Hero = () => {
   return (
     <>
@@ -19,7 +20,7 @@ export const Hero = () => {
               Our AI-powered resume builder is <br />designed to help you craft a
               professional, <br />personalized resume in <br />minutes.
             </p>
-            <MainButton text={"Learn More"}/> 
+            <Link href={"form"}><MainButton text={"Get Started"}/></Link> 
           </div>
 
           

@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import { run } from "./prompt";
-import UserInfo from "./components/UserInfo";
+import UserInfo from "./components/Form";
 import { NavBar } from "./components/NavBar";
 import { Hero } from "./components/Hero";
 import { Steps } from "./components/Steps";

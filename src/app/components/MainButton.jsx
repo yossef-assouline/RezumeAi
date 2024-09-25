@@ -5,7 +5,7 @@ export const MainButton = ({text}) => {
   
   /* From Uiverse.io by AKAspidey01 */ 
 <button
-  className="bg-white text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group ring-2"
+  className="bg-white text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group "
   type="button"
 >
   <div
